@@ -1,0 +1,95 @@
+---
+title: "conditional_loops"
+author: "Kiran Favre"
+date: "2022-08-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Part 1
+
+### Task 1
+
+```{r}
+pm2_5 <- 160
+if (pm2_5 < 100) {
+  print("Low to moderate risk")
+} else if ( 100 <= pm2_5 & pm2_5 < 150){
+  print("unhealthy for sensitive groups")
+} else {(pm2_5>=150)
+  print("health risk present")
+}
+```
+
+### Task 2
+
+```{r}
+species <- "blue whale"
+if (str_detect(species, "whale")){
+  print("You found a whale!")}
+```
+
+### Task 3
+
+```{r}
+max_airtemp_C <- c(24.1)
+
+if(max_airtemp_C > 27) {
+  print("Temperature too high")
+} else
+  print("Temperature OK")
+```
+
+#### Task 4
+
+```{r}
+base_burrito <- 6.50
+main_ingredient <- c("beef")
+switch(main_ingredient,
+       "veggie" = print(base_burrito),
+       "chicken" = print(base_burrito +3),
+       "beef" = print(base_burrito +3.50))
+
+```
+
+## For loops
+
+### Task 5
+
+##### Create a new vector called `fish` that contains the values `8, 10, 12, 23` representing counts of different fish types in a fish tank (goldfish, tetras, guppies, and mollies, respectively). Write a for loop that iterates through `fish`, and returns what proportion of total fish in the tank are that species. Assume that these counts represent all fish in the tank.
+
+```{r}
+fishproportions <- vector(mode = "numeric", length=length(types))
+
+fish <- c(8, 10, 12, 23)
+total_count <- sum(fish)
+types<- c("goldfish", "tetras", "guppies", "mollies")
+
+for (i in seq_along(fish)) {
+ if (types[i] == "goldfish"){
+   fish_prop <- fish[i]/total_count}
+else if(types[i] == "tetras"){
+  fish_prop <- fish[i]/total_count}
+else if(types[i] == "guppies"){
+  fish_prop <- fish[i]/total_count}
+else if(types[i] == "mollies"){
+  fish_prop <- fish[i]/total_count}
+fishproportions[i] <- fish_prop
+}
+
+```
+
+#### Task 6
+
+```{r}
+month_names <- month.name
+
+
+for (i in seq_along(month_names)) {
+  print(paste(month_names[i], "is month", i))
+}
+```
