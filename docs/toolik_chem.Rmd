@@ -1,0 +1,24 @@
+---
+title: "toolik_chem"
+author: "Kiran Favre"
+date: "2022-08-10"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(tidyverse)
+library(here)
+library(janitor)
+```
+
+```{r}
+toolik_biochem <- read_csv(here("data", "2011_Kling_Akchem.csv"), na = c("NAN","NA")) |> 
+  clean_names()
+
+read_csv
+```
+
